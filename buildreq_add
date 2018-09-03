@@ -1,0 +1,14 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+tdb-dev
+tevent-dev
+ldb-dev
+ding-libs-dev
+Linux-PAM-dev
+e2fsprogs-dev
+nfs-utils-dev
+openldap-dev
+samba-dev
+cyrus-sasl-dev
+libnl-dev
+python-dev

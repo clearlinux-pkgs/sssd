@@ -1,0 +1,13 @@
+2.0.0
+bind-utils
+c-ares-dev
+gdm-dev
+jansson-dev
+keyutils-dev
+krb5-dev
+pcre-dev
+pkgconfig(nss)
+popt-dev
+pytest
+python3-dev
+util-linux-dev
