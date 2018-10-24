@@ -4,7 +4,7 @@
 #
 Name     : sssd
 Version  : 2.0.0
-Release  : 1
+Release  : 2
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_0_0.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_0_0.tar.gz
 Summary  : System Services Security Daemon (SSSD) PyTest Framework
