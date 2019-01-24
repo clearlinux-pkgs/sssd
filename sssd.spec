@@ -4,19 +4,20 @@
 #
 Name     : sssd
 Version  : 2.0.0
-Release  : 3
+Release  : 4
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_0_0.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_0_0.tar.gz
 Summary  : System Services Security Daemon (SSSD) PyTest Framework
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+ LGPL-3.0
-Requires: sssd-bin
-Requires: sssd-python3
-Requires: sssd-lib
-Requires: sssd-data
-Requires: sssd-license
-Requires: sssd-locales
-Requires: sssd-python
+Requires: sssd-bin = %{version}-%{release}
+Requires: sssd-data = %{version}-%{release}
+Requires: sssd-lib = %{version}-%{release}
+Requires: sssd-libexec = %{version}-%{release}
+Requires: sssd-license = %{version}-%{release}
+Requires: sssd-locales = %{version}-%{release}
+Requires: sssd-python = %{version}-%{release}
+Requires: sssd-python3 = %{version}-%{release}
 BuildRequires : Linux-PAM-dev
 BuildRequires : bind-utils
 BuildRequires : buildreq-distutils3
@@ -44,6 +45,7 @@ BuildRequires : samba-dev
 BuildRequires : tdb-dev
 BuildRequires : tevent-dev
 BuildRequires : util-linux-dev
+Patch1: CVE-2019-3811.patch
 
 %description
 A python framework for System Services Security Daemon (SSSD) PyTest Framework.
@@ -51,8 +53,9 @@ A python framework for System Services Security Daemon (SSSD) PyTest Framework.
 %package bin
 Summary: bin components for the sssd package.
 Group: Binaries
-Requires: sssd-data
-Requires: sssd-license
+Requires: sssd-data = %{version}-%{release}
+Requires: sssd-libexec = %{version}-%{release}
+Requires: sssd-license = %{version}-%{release}
 
 %description bin
 bin components for the sssd package.
@@ -69,10 +72,10 @@ data components for the sssd package.
 %package dev
 Summary: dev components for the sssd package.
 Group: Development
-Requires: sssd-lib
-Requires: sssd-bin
-Requires: sssd-data
-Provides: sssd-devel
+Requires: sssd-lib = %{version}-%{release}
+Requires: sssd-bin = %{version}-%{release}
+Requires: sssd-data = %{version}-%{release}
+Provides: sssd-devel = %{version}-%{release}
 
 %description dev
 dev components for the sssd package.
@@ -90,11 +93,21 @@ legacypython components for the sssd package.
 %package lib
 Summary: lib components for the sssd package.
 Group: Libraries
-Requires: sssd-data
-Requires: sssd-license
+Requires: sssd-data = %{version}-%{release}
+Requires: sssd-libexec = %{version}-%{release}
+Requires: sssd-license = %{version}-%{release}
 
 %description lib
 lib components for the sssd package.
+
+
+%package libexec
+Summary: libexec components for the sssd package.
+Group: Default
+Requires: sssd-license = %{version}-%{release}
+
+%description libexec
+libexec components for the sssd package.
 
 
 %package license
@@ -116,7 +129,7 @@ locales components for the sssd package.
 %package python
 Summary: python components for the sssd package.
 Group: Default
-Requires: sssd-python3
+Requires: sssd-python3 = %{version}-%{release}
 
 %description python
 python components for the sssd package.
@@ -133,13 +146,18 @@ python3 components for the sssd package.
 
 %prep
 %setup -q -n sssd-sssd-2_0_0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535937569
+export SOURCE_DATE_EPOCH=1548295183
+export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 %reconfigure --disable-static --disable-cifs-idmap-plugin --without-samba --without-manpages --without-selinux
 make  %{?_smp_mflags}
 
@@ -151,12 +169,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1535937569
+export SOURCE_DATE_EPOCH=1548295183
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/sssd
-cp COPYING %{buildroot}/usr/share/doc/sssd/COPYING
-cp src/sss_client/COPYING %{buildroot}/usr/share/doc/sssd/src_sss_client_COPYING
-cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/doc/sssd/src_sss_client_COPYING.LESSER
+mkdir -p %{buildroot}/usr/share/package-licenses/sssd
+cp COPYING %{buildroot}/usr/share/package-licenses/sssd/COPYING
+cp src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/src_sss_client_COPYING
+cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/src_sss_client_COPYING.LESSER
 %make_install
 %find_lang sssd
 
@@ -175,24 +193,11 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/doc/sssd/src_sss_client_
 /usr/bin/sss_ssh_knownhostsproxy
 /usr/bin/sssctl
 /usr/bin/sssd
-/usr/libexec/sssd/krb5_child
-/usr/libexec/sssd/ldap_child
-/usr/libexec/sssd/p11_child
-/usr/libexec/sssd/proxy_child
-/usr/libexec/sssd/selinux_child
-/usr/libexec/sssd/sss_signal
-/usr/libexec/sssd/sssd_autofs
-/usr/libexec/sssd/sssd_be
-/usr/libexec/sssd/sssd_ifp
-/usr/libexec/sssd/sssd_kcm
-/usr/libexec/sssd/sssd_nss
-/usr/libexec/sssd/sssd_pam
-/usr/libexec/sssd/sssd_ssh
-/usr/libexec/sssd/sssd_sudo
 
 %files data
 %defattr(-,root,root,-)
 /usr/share/dbus-1/system-services/org.freedesktop.sssd.infopipe.service
+/usr/share/dbus-1/system.d/org.freedesktop.sssd.infopipe.conf
 /usr/share/sssd-kcm/kcm_default_ccache
 /usr/share/sssd/cfg_rules.ini
 /usr/share/sssd/sssd.api.conf
@@ -268,11 +273,28 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/doc/sssd/src_sss_client_
 /usr/lib64/sssd/modules/libwbclient.so.0.14.0
 /usr/lib64/sssd/modules/sssd_krb5_localauth_plugin.so
 
-%files license
+%files libexec
 %defattr(-,root,root,-)
-/usr/share/doc/sssd/COPYING
-/usr/share/doc/sssd/src_sss_client_COPYING
-/usr/share/doc/sssd/src_sss_client_COPYING.LESSER
+/usr/libexec/sssd/krb5_child
+/usr/libexec/sssd/ldap_child
+/usr/libexec/sssd/p11_child
+/usr/libexec/sssd/proxy_child
+/usr/libexec/sssd/selinux_child
+/usr/libexec/sssd/sss_signal
+/usr/libexec/sssd/sssd_autofs
+/usr/libexec/sssd/sssd_be
+/usr/libexec/sssd/sssd_ifp
+/usr/libexec/sssd/sssd_kcm
+/usr/libexec/sssd/sssd_nss
+/usr/libexec/sssd/sssd_pam
+/usr/libexec/sssd/sssd_ssh
+/usr/libexec/sssd/sssd_sudo
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/sssd/COPYING
+/usr/share/package-licenses/sssd/src_sss_client_COPYING
+/usr/share/package-licenses/sssd/src_sss_client_COPYING.LESSER
 
 %files python
 %defattr(-,root,root,-)
