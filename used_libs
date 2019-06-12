@@ -3,6 +3,7 @@ libc.so.6
 libcares.so.2
 libcollection.so.4
 libcom_err.so.2
+libcrypt.so.1
 libdbus-1.so.3
 libdhash.so.1
 libdl.so.2

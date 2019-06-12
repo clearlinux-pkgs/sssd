@@ -4,12 +4,12 @@
 #
 Name     : sssd
 Version  : 2.0.0
-Release  : 6
+Release  : 7
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_0_0.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_0_0.tar.gz
-Summary  : System Services Security Daemon (SSSD) PyTest Framework
+Summary  : SSSD implementation of Samba wbclient API
 Group    : Development/Tools
-License  : GPL-3.0 GPL-3.0+ LGPL-3.0
+License  : GPL-3.0 LGPL-3.0
 Requires: sssd-bin = %{version}-%{release}
 Requires: sssd-data = %{version}-%{release}
 Requires: sssd-lib = %{version}-%{release}
@@ -46,9 +46,15 @@ BuildRequires : tdb-dev
 BuildRequires : tevent-dev
 BuildRequires : util-linux-dev
 Patch1: CVE-2019-3811.patch
+Patch2: CVE-2018-16838.patch
 
 %description
-A python framework for System Services Security Daemon (SSSD) PyTest Framework.
+# SSSD - System Security Services Daemon
+## Introduction
+SSSD provides a set of daemons to manage access to remote directories and
+authentication mechanisms such as LDAP, Kerberos or FreeIPA. It provides
+an NSS and PAM interface toward the system and a pluggable backend system
+to connect to multiple different account sources.
 
 %package bin
 Summary: bin components for the sssd package.
@@ -76,6 +82,7 @@ Requires: sssd-lib = %{version}-%{release}
 Requires: sssd-bin = %{version}-%{release}
 Requires: sssd-data = %{version}-%{release}
 Provides: sssd-devel = %{version}-%{release}
+Requires: sssd = %{version}-%{release}
 
 %description dev
 dev components for the sssd package.
@@ -147,17 +154,19 @@ python3 components for the sssd package.
 %prep
 %setup -q -n sssd-sssd-2_0_0
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548295183
-export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export SOURCE_DATE_EPOCH=1560310812
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 %reconfigure --disable-static --disable-cifs-idmap-plugin --without-samba --without-manpages --without-selinux
 make  %{?_smp_mflags}
 
@@ -169,7 +178,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1548295183
+export SOURCE_DATE_EPOCH=1560310812
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
 cp COPYING %{buildroot}/usr/share/package-licenses/sssd/COPYING
