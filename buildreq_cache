@@ -1,4 +1,4 @@
-2.0.0
+2.2.0
 bind-utils
 c-ares-dev
 gdm-dev
@@ -11,3 +11,4 @@ popt-dev
 pytest
 python3-dev
 util-linux-dev
+valgrind

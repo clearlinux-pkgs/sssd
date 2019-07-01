@@ -27,8 +27,10 @@ libnss_sss.so.2:_nss_sss_setnetgrent
 libnss_sss.so.2:_nss_sss_setpwent
 libnss_sss.so.2:_nss_sss_setservent
 libsss_certmap.so.0:SSS_CERTMAP_0.0
+libsss_certmap.so.0:SSS_CERTMAP_0.1
 libsss_certmap.so.0:sss_cert_get_content
 libsss_certmap.so.0:sss_certmap_add_rule
+libsss_certmap.so.0:sss_certmap_display_cert_content
 libsss_certmap.so.0:sss_certmap_free_ctx
 libsss_certmap.so.0:sss_certmap_free_filter_and_domains
 libsss_certmap.so.0:sss_certmap_get_search_filter
