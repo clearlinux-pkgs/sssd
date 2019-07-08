@@ -1,5 +1,5 @@
 --disable-cifs-idmap-plugin
---without-samba
+--with-samba
 --without-manpages
 --without-selinux
 --without-semanage

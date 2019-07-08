@@ -10,7 +10,6 @@ Configure miss: krb5_princ_realm
 Configure miss: krb5_principal_get_realm
 Configure miss: uint_t
 Configure miss: nscd
-Configure miss: struct PAC_LOGON_INFO.resource_groups
 Configure miss: fakeroot
 Configure miss: rtnl_route_get_oif in -lnl-3
 Configure miss: nl_set_passcred in -lnl-3
@@ -18,8 +17,6 @@ Configure miss: service
 Configure miss: the executable "service"
 Configure miss: python2 module: ldap
 Configure miss: uid_wrapper
-Configure miss: nss_wrapper
-Configure miss: pam_wrapper
 Configure miss: ssh-keygen
 Configure miss: certutil
 Configure miss: pk12util

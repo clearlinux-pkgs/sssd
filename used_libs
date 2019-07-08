@@ -17,6 +17,10 @@ liblber-2.4.so.2
 libldap-2.4.so.2
 libldb.so.1
 libm.so.6
+libndr-krb5pac.so.0
+libndr-nbt.so.0
+libndr-standard.so.0
+libndr.so.0
 libnfsidmap.so.1
 libnl-3.so.200
 libnl-route-3.so.200
@@ -34,6 +38,9 @@ libpython2.7.so.1.0
 libpython3.7m.so.1.0
 libref_array.so.1
 librt.so.1
+libsamba-util.so.0
+libsasl2.so.3
+libsmbclient.so.0
 libsmime3.so
 libssl3.so
 libtalloc.so.2

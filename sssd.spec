@@ -4,7 +4,7 @@
 #
 Name     : sssd
 Version  : 2.2.0
-Release  : 8
+Release  : 9
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_2_0/sssd-2.2.0.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_2_0/sssd-2.2.0.tar.gz
 Summary  : SSSD implementation of Samba wbclient API
@@ -157,29 +157,29 @@ python3 components for the sssd package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1562007697
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562625030
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 %reconfigure --disable-static --disable-cifs-idmap-plugin \
---without-samba \
+--with-samba \
 --without-manpages \
 --without-selinux \
 --without-semanage
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1562007697
+export SOURCE_DATE_EPOCH=1562625030
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
 cp COPYING %{buildroot}/usr/share/package-licenses/sssd/COPYING
@@ -242,6 +242,7 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/krb5/plugins/authdata/sssd_pac_plugin.so
 /usr/lib64/krb5/plugins/libkrb5/sssd_krb5_locator_plugin.so
 /usr/lib64/ldb/modules/ldb/memberof.so
 /usr/lib64/libipa_hbac.so.0
@@ -256,9 +257,11 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 /usr/lib64/libsss_nss_idmap.so.0.5.0
 /usr/lib64/libsss_simpleifp.so.0
 /usr/lib64/libsss_simpleifp.so.0.1.1
+/usr/lib64/samba/idmap/sss.so
 /usr/lib64/security/pam_sss.so
 /usr/lib64/sssd/libifp_iface.so
 /usr/lib64/sssd/libifp_iface_sync.so
+/usr/lib64/sssd/libsss_ad.so
 /usr/lib64/sssd/libsss_cert.so
 /usr/lib64/sssd/libsss_child.so
 /usr/lib64/sssd/libsss_crypt.so
@@ -266,6 +269,7 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 /usr/lib64/sssd/libsss_files.so
 /usr/lib64/sssd/libsss_iface.so
 /usr/lib64/sssd/libsss_iface_sync.so
+/usr/lib64/sssd/libsss_ipa.so
 /usr/lib64/sssd/libsss_krb5.so
 /usr/lib64/sssd/libsss_krb5_common.so
 /usr/lib64/sssd/libsss_ldap.so
@@ -285,6 +289,7 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 
 %files libexec
 %defattr(-,root,root,-)
+/usr/libexec/sssd/gpo_child
 /usr/libexec/sssd/krb5_child
 /usr/libexec/sssd/ldap_child
 /usr/libexec/sssd/p11_child
@@ -295,6 +300,7 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 /usr/libexec/sssd/sssd_ifp
 /usr/libexec/sssd/sssd_kcm
 /usr/libexec/sssd/sssd_nss
+/usr/libexec/sssd/sssd_pac
 /usr/libexec/sssd/sssd_pam
 /usr/libexec/sssd/sssd_ssh
 /usr/libexec/sssd/sssd_sudo
