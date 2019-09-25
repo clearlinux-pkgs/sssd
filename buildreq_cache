@@ -9,6 +9,7 @@ pcre-dev
 pkgconfig(nss)
 popt-dev
 pytest
+python-core
 python3-dev
 util-linux-dev
 valgrind

@@ -34,7 +34,6 @@ libplc4.so
 libplds4.so
 libpopt.so.0
 libpthread.so.0
-libpython2.7.so.1.0
 libpython3.7m.so.1.0
 libref_array.so.1
 librt.so.1

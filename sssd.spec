@@ -4,7 +4,7 @@
 #
 Name     : sssd
 Version  : 2.2.0
-Release  : 10
+Release  : 11
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_2_0/sssd-2.2.0.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_2_0/sssd-2.2.0.tar.gz
 Summary  : SSSD implementation of Samba wbclient API
@@ -39,7 +39,6 @@ BuildRequires : pkgconfig(dbus-1)
 BuildRequires : pkgconfig(nss)
 BuildRequires : popt-dev
 BuildRequires : pytest
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : samba-dev
 BuildRequires : tdb-dev
@@ -85,15 +84,6 @@ Requires: sssd = %{version}-%{release}
 
 %description dev
 dev components for the sssd package.
-
-
-%package legacypython
-Summary: legacypython components for the sssd package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the sssd package.
 
 
 %package lib
@@ -158,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562625030
+export SOURCE_DATE_EPOCH=1569444441
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -167,6 +157,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved
 %reconfigure --disable-static --disable-cifs-idmap-plugin \
 --with-samba \
 --without-manpages \
+--without-python2-bindings \
 --without-selinux \
 --without-semanage
 make  %{?_smp_mflags}
@@ -179,7 +170,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1562625030
+export SOURCE_DATE_EPOCH=1569444441
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
 cp COPYING %{buildroot}/usr/share/package-licenses/sssd/COPYING
@@ -222,7 +213,13 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
+/usr/include/ipa_hbac.h
+/usr/include/sss_certmap.h
+/usr/include/sss_idmap.h
+/usr/include/sss_nss_idmap.h
+/usr/include/sss_sifp.h
+/usr/include/sss_sifp_dbus.h
+/usr/include/wbclient_sssd.h
 /usr/lib64/libipa_hbac.so
 /usr/lib64/libsss_certmap.so
 /usr/lib64/libsss_idmap.so
@@ -235,10 +232,6 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 /usr/lib64/pkgconfig/sss_nss_idmap.pc
 /usr/lib64/pkgconfig/sss_simpleifp.pc
 /usr/lib64/pkgconfig/wbclient_sssd.pc
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files lib
 %defattr(-,root,root,-)
