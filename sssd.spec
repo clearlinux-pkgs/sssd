@@ -4,7 +4,7 @@
 #
 Name     : sssd
 Version  : 2.2.0
-Release  : 14
+Release  : 15
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_2_0/sssd-2.2.0.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_2_0/sssd-2.2.0.tar.gz
 Summary  : SSSD implementation of Samba wbclient API
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569444441
+export SOURCE_DATE_EPOCH=1571020915
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -170,12 +170,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1569444441
+export SOURCE_DATE_EPOCH=1571020915
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
-cp COPYING %{buildroot}/usr/share/package-licenses/sssd/COPYING
-cp src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/src_sss_client_COPYING
-cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/src_sss_client_COPYING.LESSER
+cp %{_builddir}/sssd-sssd-2_2_0/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-sssd-2_2_0/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-sssd-2_2_0/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
 %make_install
 %find_lang sssd
 
@@ -300,9 +300,8 @@ cp src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/sr
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/sssd/COPYING
-/usr/share/package-licenses/sssd/src_sss_client_COPYING
-/usr/share/package-licenses/sssd/src_sss_client_COPYING.LESSER
+/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
 
 %files python
 %defattr(-,root,root,-)

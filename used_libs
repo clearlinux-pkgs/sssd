@@ -15,7 +15,7 @@ libkeyutils.so.1
 libkrb5.so.3
 liblber-2.4.so.2
 libldap-2.4.so.2
-libldb.so.1
+libldb.so.2
 libm.so.6
 libndr-krb5pac.so.0
 libndr-nbt.so.0
