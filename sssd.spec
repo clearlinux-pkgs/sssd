@@ -4,7 +4,7 @@
 #
 Name     : sssd
 Version  : 2.2.2
-Release  : 16
+Release  : 17
 URL      : https://github.com/SSSD/sssd/archive/sssd-2_2_2/sssd-2.2.2.tar.gz
 Source0  : https://github.com/SSSD/sssd/archive/sssd-2_2_2/sssd-2.2.2.tar.gz
 Summary  : SSSD implementation of Samba wbclient API
