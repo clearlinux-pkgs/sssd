@@ -1,4 +1,4 @@
-2.2.2
+2.2.3
 bind-utils
 c-ares-dev
 gdm-dev
@@ -8,6 +8,5 @@ krb5-dev
 pcre-dev
 pkgconfig(nss)
 popt-dev
-python-core
 python3-dev
 valgrind
