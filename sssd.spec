@@ -6,11 +6,11 @@
 #
 Name     : sssd
 Version  : 2.2.3
-Release  : 20
+Release  : 21
 URL      : https://releases.pagure.org/SSSD/sssd/sssd-2.2.3.tar.gz
 Source0  : https://releases.pagure.org/SSSD/sssd/sssd-2.2.3.tar.gz
 Source1  : https://releases.pagure.org/SSSD/sssd/sssd-2.2.3.tar.gz.asc
-Summary  : SSSD implementation of Samba wbclient API
+Summary  : System Security Services Daemon
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0
 Requires: sssd-bin = %{version}-%{release}
@@ -80,6 +80,7 @@ Requires: sssd-bin = %{version}-%{release}
 Requires: sssd-data = %{version}-%{release}
 Provides: sssd-devel = %{version}-%{release}
 Requires: sssd = %{version}-%{release}
+Requires: sssd = %{version}-%{release}
 
 %description dev
 dev components for the sssd package.
@@ -148,12 +149,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579035850
+export SOURCE_DATE_EPOCH=1582917073
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CFLAGS="$CFLAGS -fcf-protection=full -fno-lto -fstack-protector-strong "
+export FCFLAGS="$CFLAGS -fcf-protection=full -fno-lto -fstack-protector-strong "
+export FFLAGS="$CFLAGS -fcf-protection=full -fno-lto -fstack-protector-strong "
+export CXXFLAGS="$CXXFLAGS -fcf-protection=full -fno-lto -fstack-protector-strong "
 %configure --disable-static --disable-cifs-idmap-plugin \
 --with-samba \
 --without-manpages \
@@ -170,7 +172,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1579035850
+export SOURCE_DATE_EPOCH=1582917073
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
 cp %{_builddir}/sssd-2.2.3/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
