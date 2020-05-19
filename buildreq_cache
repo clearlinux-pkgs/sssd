@@ -1,4 +1,4 @@
-2.2.3
+2.3.0
 bind-utils
 c-ares-dev
 gdm-dev
@@ -6,7 +6,7 @@ jansson-dev
 keyutils-dev
 krb5-dev
 pcre-dev
-pkgconfig(nss)
+pkgconfig(libcrypto)
+pkgconfig(p11-kit-1)
 popt-dev
-python3-dev
 valgrind
