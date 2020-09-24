@@ -6,7 +6,7 @@
 #
 Name     : sssd
 Version  : 2.3.0
-Release  : 23
+Release  : 24
 URL      : https://github.com/SSSD/sssd/releases/download/sssd-2_3_0/sssd-2.3.0.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/sssd-2_3_0/sssd-2.3.0.tar.gz
 Source1  : https://github.com/SSSD/sssd/releases/download/sssd-2_3_0/sssd-2.3.0.tar.gz.asc
