@@ -1,14 +1,24 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
 Linux-PAM-dev
+bind-utils
+c-ares-dev
 cyrus-sasl-dev
 ding-libs-dev
 e2fsprogs-dev
+gdm-dev
+jansson-dev
+keyutils-dev
+krb5-dev
+krb5-dev
 ldb-dev
 libnl-dev
 nfs-utils-dev
 openldap-dev
+pcre-dev
+popt-dev
 python3-dev
 samba-dev
 tdb-dev
 tevent-dev
+valgrind

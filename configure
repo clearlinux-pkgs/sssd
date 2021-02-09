@@ -1,5 +1,6 @@
 --disable-cifs-idmap-plugin
 --with-samba
+--without-libwbclient
 --without-manpages
 --without-python2-bindings
 --without-selinux

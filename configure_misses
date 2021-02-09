@@ -22,3 +22,4 @@ Configure miss: ssh-keygen
 Configure miss: softhsm2-util
 Configure miss: p11tool
 Configure miss: faketime
+Configure miss: Valgrind tool sgcheck

@@ -1,5 +1,5 @@
 PKG_NAME := sssd
-URL = https://github.com/SSSD/sssd/releases/download/sssd-2_3_0/sssd-2.3.0.tar.gz
+URL = https://github.com/SSSD/sssd/releases/download/2.4.1/sssd-2.4.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
