@@ -10,7 +10,6 @@ gdm-dev
 jansson-dev
 keyutils-dev
 krb5-dev
-krb5-dev
 ldb-dev
 libnl-dev
 nfs-utils-dev
