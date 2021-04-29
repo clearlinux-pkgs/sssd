@@ -6,7 +6,7 @@
 #
 Name     : sssd
 Version  : 2.4.2
-Release  : 32
+Release  : 33
 URL      : https://github.com/SSSD/sssd/releases/download/2.4.2/sssd-2.4.2.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.4.2/sssd-2.4.2.tar.gz
 Source1  : https://github.com/SSSD/sssd/releases/download/2.4.2/sssd-2.4.2.tar.gz.asc
@@ -151,10 +151,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
 export SOURCE_DATE_EPOCH=1613782070
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 %configure --disable-static --disable-cifs-idmap-plugin \
 --with-samba \
 --without-libwbclient \
