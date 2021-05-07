@@ -6,7 +6,7 @@
 #
 Name     : sssd
 Version  : 2.4.2
-Release  : 33
+Release  : 34
 URL      : https://github.com/SSSD/sssd/releases/download/2.4.2/sssd-2.4.2.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.4.2/sssd-2.4.2.tar.gz
 Source1  : https://github.com/SSSD/sssd/releases/download/2.4.2/sssd-2.4.2.tar.gz.asc
