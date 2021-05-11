@@ -1,25 +1,27 @@
+Configure miss: PCRE
+Configure miss: Valgrind tool sgcheck
 Configure miss: dld_link in -ldld
 Configure miss: errno_t
+Configure miss: fakeroot
+Configure miss: faketime
 Configure miss: feature ldb runtime version check
-Configure miss: security/openpam.h
-Configure miss: slapd
-Configure miss: x86_64-generic-linux-gnu-krb5-config
-Configure miss: krb5_times
 Configure miss: krb5_princ_realm
 Configure miss: krb5_principal_get_realm
-Configure miss: uint_t
-Configure miss: nscd
-Configure miss: fakeroot
-Configure miss: rtnl_route_get_oif in -lnl-3
+Configure miss: krb5_times
+Configure miss: krb5_unmarshal_credentials
 Configure miss: nl_set_passcred in -lnl-3
-Configure miss: service
-Configure miss: the executable "service"
-Configure miss: python2
-Configure miss: uid_wrapper
+Configure miss: nscd
 Configure miss: nss_wrapper
-Configure miss: pam_wrapper
-Configure miss: ssh-keygen
-Configure miss: softhsm2-util
 Configure miss: p11tool
-Configure miss: faketime
-Configure miss: Valgrind tool sgcheck
+Configure miss: pam_wrapper
+Configure miss: python2
+Configure miss: rtnl_route_get_oif in -lnl-3
+Configure miss: security/openpam.h
+Configure miss: service
+Configure miss: slapd
+Configure miss: softhsm2-util
+Configure miss: ssh-keygen
+Configure miss: the executable "service"
+Configure miss: uid_wrapper
+Configure miss: uint_t
+Configure miss: x86_64-generic-linux-gnu-krb5-config
