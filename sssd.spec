@@ -6,7 +6,7 @@
 #
 Name     : sssd
 Version  : 2.5.1
-Release  : 36
+Release  : 37
 URL      : https://github.com/SSSD/sssd/releases/download/2.5.1/sssd-2.5.1.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.5.1/sssd-2.5.1.tar.gz
 Source1  : https://github.com/SSSD/sssd/releases/download/2.5.1/sssd-2.5.1.tar.gz.asc
