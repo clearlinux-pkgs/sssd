@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xAFFE75DDE8508E12 (pbrezina@redhat.com)
 #
 Name     : sssd
-Version  : 2.5.1
-Release  : 38
-URL      : https://github.com/SSSD/sssd/releases/download/2.5.1/sssd-2.5.1.tar.gz
-Source0  : https://github.com/SSSD/sssd/releases/download/2.5.1/sssd-2.5.1.tar.gz
-Source1  : https://github.com/SSSD/sssd/releases/download/2.5.1/sssd-2.5.1.tar.gz.asc
+Version  : 2.5.2
+Release  : 39
+URL      : https://github.com/SSSD/sssd/releases/download/2.5.2/sssd-2.5.2.tar.gz
+Source0  : https://github.com/SSSD/sssd/releases/download/2.5.2/sssd-2.5.2.tar.gz
+Source1  : https://github.com/SSSD/sssd/releases/download/2.5.2/sssd-2.5.2.tar.gz.asc
 Summary  : SSS idmap (SID <-> uid,gid) library
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0
@@ -141,15 +141,15 @@ python3 components for the sssd package.
 
 
 %prep
-%setup -q -n sssd-2.5.1
-cd %{_builddir}/sssd-2.5.1
+%setup -q -n sssd-2.5.2
+cd %{_builddir}/sssd-2.5.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623201670
+export SOURCE_DATE_EPOCH=1627492055
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -172,12 +172,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1623201670
+export SOURCE_DATE_EPOCH=1627492055
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
-cp %{_builddir}/sssd-2.5.1/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/sssd-2.5.1/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/sssd-2.5.1/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
+cp %{_builddir}/sssd-2.5.2/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-2.5.2/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-2.5.2/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
 %make_install
 %find_lang sssd
 

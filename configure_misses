@@ -21,6 +21,18 @@ Configure miss: service
 Configure miss: slapd
 Configure miss: softhsm2-util
 Configure miss: ssh-keygen
+Configure miss: tevent_fd_get_tag
+Configure miss: tevent_fd_set_tag
+Configure miss: tevent_immediate_get_tag
+Configure miss: tevent_immediate_set_tag
+Configure miss: tevent_set_trace_fd_callback
+Configure miss: tevent_set_trace_immediate_callback
+Configure miss: tevent_set_trace_signal_callback
+Configure miss: tevent_set_trace_timer_callback
+Configure miss: tevent_signal_get_tag
+Configure miss: tevent_signal_set_tag
+Configure miss: tevent_timer_get_tag
+Configure miss: tevent_timer_set_tag
 Configure miss: the executable "service"
 Configure miss: uid_wrapper
 Configure miss: uint_t
