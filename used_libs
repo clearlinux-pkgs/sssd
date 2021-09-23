@@ -7,7 +7,6 @@ libcrypt.so.1
 libcrypto.so.1.1
 libdbus-1.so.3
 libdhash.so.1
-libdl.so.2
 libglib-2.0.so.0
 libgssapi_krb5.so.2
 libini_config.so.5
@@ -22,7 +21,7 @@ libm.so.6
 libndr-krb5pac.so.0
 libndr-nbt.so.0
 libndr-standard.so.0
-libndr.so.1
+libndr.so.2
 libnfsidmap.so.1
 libnl-3.so.200
 libnl-route-3.so.200
@@ -31,9 +30,7 @@ libpam.so.0
 libpam_misc.so.0
 libpcre.so.1
 libpopt.so.0
-libpthread.so.0
 libref_array.so.1
-librt.so.1
 libsamba-util.so.0
 libsasl2.so.3
 libsmbclient.so.0
@@ -41,5 +38,4 @@ libssl.so.1.1
 libtalloc.so.2
 libtdb.so.1
 libtevent.so.0
-libutil.so.1
 libuuid.so.1
