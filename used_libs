@@ -7,10 +7,8 @@ libcrypt.so.1
 libcrypto.so.1.1
 libdbus-1.so.3
 libdhash.so.1
-libglib-2.0.so.0
 libgssapi_krb5.so.2
 libini_config.so.5
-libjansson.so.4
 libk5crypto.so.3
 libkeyutils.so.1
 libkrb5.so.3
@@ -28,7 +26,7 @@ libnl-route-3.so.200
 libp11-kit.so.0
 libpam.so.0
 libpam_misc.so.0
-libpcre.so.1
+libpcre2-8.so.0
 libpopt.so.0
 libref_array.so.1
 libsamba-util.so.0
@@ -38,4 +36,5 @@ libssl.so.1.1
 libtalloc.so.2
 libtdb.so.1
 libtevent.so.0
+libunistring.so.2
 libuuid.so.1

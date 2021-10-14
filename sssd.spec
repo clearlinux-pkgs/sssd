@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xAFFE75DDE8508E12 (pbrezina@redhat.com)
 #
 Name     : sssd
-Version  : 2.5.2
-Release  : 41
-URL      : https://github.com/SSSD/sssd/releases/download/2.5.2/sssd-2.5.2.tar.gz
-Source0  : https://github.com/SSSD/sssd/releases/download/2.5.2/sssd-2.5.2.tar.gz
-Source1  : https://github.com/SSSD/sssd/releases/download/2.5.2/sssd-2.5.2.tar.gz.asc
-Summary  : SSS idmap (SID <-> uid,gid) library
+Version  : 2.6.0
+Release  : 42
+URL      : https://github.com/SSSD/sssd/releases/download/2.6.0/sssd-2.6.0.tar.gz
+Source0  : https://github.com/SSSD/sssd/releases/download/2.6.0/sssd-2.6.0.tar.gz
+Source1  : https://github.com/SSSD/sssd/releases/download/2.6.0/sssd-2.6.0.tar.gz.asc
+Summary  : NSS Responder ID-SID mapping interface
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0
 Requires: sssd-bin = %{version}-%{release}
@@ -34,9 +34,10 @@ BuildRequires : keyutils-dev
 BuildRequires : krb5-dev
 BuildRequires : ldb-dev
 BuildRequires : libnl-dev
+BuildRequires : libunistring-dev
 BuildRequires : nfs-utils-dev
 BuildRequires : openldap-dev
-BuildRequires : pcre-dev
+BuildRequires : pcre2-dev
 BuildRequires : pkgconfig(check)
 BuildRequires : pkgconfig(dbus-1)
 BuildRequires : pkgconfig(libcrypto)
@@ -141,15 +142,15 @@ python3 components for the sssd package.
 
 
 %prep
-%setup -q -n sssd-2.5.2
-cd %{_builddir}/sssd-2.5.2
+%setup -q -n sssd-2.6.0
+cd %{_builddir}/sssd-2.6.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1632439288
+export SOURCE_DATE_EPOCH=1634251825
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -172,12 +173,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1632439288
+export SOURCE_DATE_EPOCH=1634251825
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
-cp %{_builddir}/sssd-2.5.2/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/sssd-2.5.2/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/sssd-2.5.2/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
+cp %{_builddir}/sssd-2.6.0/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-2.6.0/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-2.6.0/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
 %make_install
 %find_lang sssd
 
@@ -209,7 +210,6 @@ cp %{_builddir}/sssd-2.5.2/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/
 /usr/share/sssd/sssd.api.d/sssd-ipa.conf
 /usr/share/sssd/sssd.api.d/sssd-krb5.conf
 /usr/share/sssd/sssd.api.d/sssd-ldap.conf
-/usr/share/sssd/sssd.api.d/sssd-local.conf
 /usr/share/sssd/sssd.api.d/sssd-proxy.conf
 /usr/share/sssd/sssd.api.d/sssd-simple.conf
 
@@ -271,7 +271,6 @@ cp %{_builddir}/sssd-2.5.2/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/
 /usr/lib64/sssd/libsss_proxy.so
 /usr/lib64/sssd/libsss_sbus.so
 /usr/lib64/sssd/libsss_sbus_sync.so
-/usr/lib64/sssd/libsss_secrets.so
 /usr/lib64/sssd/libsss_semanage.so
 /usr/lib64/sssd/libsss_simple.so
 /usr/lib64/sssd/libsss_util.so

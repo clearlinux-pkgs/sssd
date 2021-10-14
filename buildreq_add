@@ -14,7 +14,6 @@ ldb-dev
 libnl-dev
 nfs-utils-dev
 openldap-dev
-pcre-dev
 popt-dev
 python3-dev
 samba-dev
