@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xAFFE75DDE8508E12 (pbrezina@redhat.com)
 #
 Name     : sssd
-Version  : 2.6.0
-Release  : 46
-URL      : https://github.com/SSSD/sssd/releases/download/2.6.0/sssd-2.6.0.tar.gz
-Source0  : https://github.com/SSSD/sssd/releases/download/2.6.0/sssd-2.6.0.tar.gz
-Source1  : https://github.com/SSSD/sssd/releases/download/2.6.0/sssd-2.6.0.tar.gz.asc
+Version  : 2.6.3
+Release  : 47
+URL      : https://github.com/SSSD/sssd/releases/download/2.6.3/sssd-2.6.3.tar.gz
+Source0  : https://github.com/SSSD/sssd/releases/download/2.6.3/sssd-2.6.3.tar.gz
+Source1  : https://github.com/SSSD/sssd/releases/download/2.6.3/sssd-2.6.3.tar.gz.asc
 Summary  : NSS Responder ID-SID mapping interface
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0
@@ -142,15 +142,15 @@ python3 components for the sssd package.
 
 
 %prep
-%setup -q -n sssd-2.6.0
-cd %{_builddir}/sssd-2.6.0
+%setup -q -n sssd-2.6.3
+cd %{_builddir}/sssd-2.6.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1634251825
+export SOURCE_DATE_EPOCH=1644952983
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -173,12 +173,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1634251825
+export SOURCE_DATE_EPOCH=1644952983
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
-cp %{_builddir}/sssd-2.6.0/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/sssd-2.6.0/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/sssd-2.6.0/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
+cp %{_builddir}/sssd-2.6.3/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-2.6.3/src/sss_client/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+cp %{_builddir}/sssd-2.6.3/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/package-licenses/sssd/978773e74b4cfcbe611ae1217754f259ad37ac96
 %make_install
 %find_lang sssd
 
@@ -204,6 +204,7 @@ cp %{_builddir}/sssd-2.6.0/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/
 /usr/share/dbus-1/system.d/org.freedesktop.sssd.infopipe.conf
 /usr/share/sssd-kcm/kcm_default_ccache
 /usr/share/sssd/cfg_rules.ini
+/usr/share/sssd/krb5-snippets/enable_sssd_conf_dir
 /usr/share/sssd/sssd.api.conf
 /usr/share/sssd/sssd.api.d/sssd-ad.conf
 /usr/share/sssd/sssd.api.d/sssd-files.conf
@@ -284,6 +285,7 @@ cp %{_builddir}/sssd-2.6.0/src/sss_client/COPYING.LESSER %{buildroot}/usr/share/
 /usr/libexec/sssd/ldap_child
 /usr/libexec/sssd/p11_child
 /usr/libexec/sssd/proxy_child
+/usr/libexec/sssd/sss_analyze
 /usr/libexec/sssd/sss_signal
 /usr/libexec/sssd/sssd_autofs
 /usr/libexec/sssd/sssd_be
