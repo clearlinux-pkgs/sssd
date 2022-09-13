@@ -105,6 +105,7 @@ libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.2.0
 libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.3.0
 libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.4.0
 libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.5.0
+libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.6.0
 libsss_nss_idmap.so.0:sss_nss_free_kv
 libsss_nss_idmap.so.0:sss_nss_getgrgid_timeout
 libsss_nss_idmap.so.0:sss_nss_getgrnam_timeout
@@ -117,8 +118,12 @@ libsss_nss_idmap.so.0:sss_nss_getnamebycert
 libsss_nss_idmap.so.0:sss_nss_getnamebycert_timeout
 libsss_nss_idmap.so.0:sss_nss_getnamebysid
 libsss_nss_idmap.so.0:sss_nss_getnamebysid_timeout
+libsss_nss_idmap.so.0:sss_nss_getorigbygroupname
+libsss_nss_idmap.so.0:sss_nss_getorigbygroupname_timeout
 libsss_nss_idmap.so.0:sss_nss_getorigbyname
 libsss_nss_idmap.so.0:sss_nss_getorigbyname_timeout
+libsss_nss_idmap.so.0:sss_nss_getorigbyusername
+libsss_nss_idmap.so.0:sss_nss_getorigbyusername_timeout
 libsss_nss_idmap.so.0:sss_nss_getpwnam_timeout
 libsss_nss_idmap.so.0:sss_nss_getpwuid_timeout
 libsss_nss_idmap.so.0:sss_nss_getsidbygid

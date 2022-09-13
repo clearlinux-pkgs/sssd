@@ -5,3 +5,4 @@
 --without-python2-bindings
 --without-selinux
 --without-semanage
+--with-oidc-child=no

@@ -4,10 +4,10 @@ Configure miss: errno_t
 Configure miss: fakeroot
 Configure miss: faketime
 Configure miss: feature ldb runtime version check
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: krb5_princ_realm
 Configure miss: krb5_principal_get_realm
 Configure miss: krb5_times
-Configure miss: krb5_unmarshal_credentials
 Configure miss: ldap_is_ldapc_url
 Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nss_wrapper
@@ -20,7 +20,9 @@ Configure miss: service
 Configure miss: slapd
 Configure miss: softhsm2-util
 Configure miss: ssh-keygen
+Configure miss: supported MIT krb5 version
 Configure miss: the executable "service"
 Configure miss: uid_wrapper
 Configure miss: uint_t
+Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-krb5-config
