@@ -6,7 +6,7 @@
 #
 Name     : sssd
 Version  : 2.7.4
-Release  : 49
+Release  : 50
 URL      : https://github.com/SSSD/sssd/releases/download/2.7.4/sssd-2.7.4.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.7.4/sssd-2.7.4.tar.gz
 Source1  : https://github.com/SSSD/sssd/releases/download/2.7.4/sssd-2.7.4.tar.gz.asc
