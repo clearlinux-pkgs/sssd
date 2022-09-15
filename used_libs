@@ -22,7 +22,7 @@ libm.so.6
 libndr-krb5pac.so.0
 libndr-nbt.so.0
 libndr-standard.so.0
-libndr.so.2
+libndr.so.3
 libnfsidmap.so.1
 libnl-3.so.200
 libnl-route-3.so.200

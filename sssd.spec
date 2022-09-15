@@ -29,6 +29,7 @@ BuildRequires : curl-dev
 BuildRequires : cyrus-sasl-dev
 BuildRequires : ding-libs-dev
 BuildRequires : e2fsprogs-dev
+BuildRequires : file
 BuildRequires : gdm-dev
 BuildRequires : jansson-dev
 BuildRequires : keyutils-dev
@@ -38,6 +39,8 @@ BuildRequires : libnl-dev
 BuildRequires : libunistring-dev
 BuildRequires : nfs-utils-dev
 BuildRequires : openldap-dev
+BuildRequires : openssh
+BuildRequires : p11-kit
 BuildRequires : pcre2-dev
 BuildRequires : pkgconfig(check)
 BuildRequires : pkgconfig(dbus-1)
@@ -49,6 +52,7 @@ BuildRequires : samba-dev
 BuildRequires : tdb-dev
 BuildRequires : tevent-dev
 BuildRequires : valgrind
+Patch1: krb5.patch
 
 %description
 # SSSD - System Security Services Daemon
@@ -147,13 +151,14 @@ python3 components for the sssd package.
 %prep
 %setup -q -n sssd-2.7.4
 cd %{_builddir}/sssd-2.7.4
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663086196
+export SOURCE_DATE_EPOCH=1663262344
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -177,7 +182,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1663086196
+export SOURCE_DATE_EPOCH=1663262344
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
 cp %{_builddir}/sssd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
@@ -241,6 +246,7 @@ cp %{_builddir}/sssd-%{version}/src/sss_client/COPYING.LESSER %{buildroot}/usr/s
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/krb5/plugins/authdata/sssd_pac_plugin.so
 /usr/lib64/krb5/plugins/libkrb5/sssd_krb5_locator_plugin.so
 /usr/lib64/ldb/modules/ldb/memberof.so
 /usr/lib64/libipa_hbac.so.0
@@ -297,6 +303,7 @@ cp %{_builddir}/sssd-%{version}/src/sss_client/COPYING.LESSER %{buildroot}/usr/s
 /usr/libexec/sssd/sssd_ifp
 /usr/libexec/sssd/sssd_kcm
 /usr/libexec/sssd/sssd_nss
+/usr/libexec/sssd/sssd_pac
 /usr/libexec/sssd/sssd_pam
 /usr/libexec/sssd/sssd_ssh
 /usr/libexec/sssd/sssd_sudo

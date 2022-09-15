@@ -20,3 +20,7 @@ samba-dev
 tdb-dev
 tevent-dev
 valgrind
+p11-kit
+openssh
+Linux-PAM-dev
+file
