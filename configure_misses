@@ -7,6 +7,7 @@ Configure miss: errno_t
 Configure miss: fakeroot
 Configure miss: fakeroot
 Configure miss: faketime
+Configure miss: faketime
 Configure miss: feature ldb runtime version check
 Configure miss: feature ldb runtime version check
 Configure miss: gcc options needed to detect all undeclared functions
@@ -22,8 +23,10 @@ Configure miss: ldap_is_ldapc_url
 Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nss_wrapper
+Configure miss: nss_wrapper
 Configure miss: p11tool
 Configure miss: p11tool
+Configure miss: pam_wrapper
 Configure miss: pam_wrapper
 Configure miss: python2
 Configure miss: python2
