@@ -4,7 +4,6 @@ libc.so.6
 libcares.so.2
 libcollection.so.4
 libcom_err.so.2
-libcrypt.so.1
 libcrypto.so.3
 libdbus-1.so.3
 libdhash.so.1
@@ -39,5 +38,5 @@ libssl.so.3
 libtalloc.so.2
 libtdb.so.1
 libtevent.so.0
-libunistring.so.2
+libunistring.so.5
 libuuid.so.1

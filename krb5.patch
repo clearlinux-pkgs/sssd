@@ -1,24 +1,20 @@
---- sssd-2.7.4/src/external/pac_responder.m4~	2022-08-26 20:34:52.000000000 +0000
-+++ sssd-2.7.4/src/external/pac_responder.m4	2022-09-15 16:59:04.926940582 +0000
-@@ -21,7 +21,8 @@
-         Kerberos\ 5\ release\ 1.16* | \
+--- sssd-2.8.2/configure~	2022-12-09 13:02:02.000000000 +0000
++++ sssd-2.8.2/configure	2023-06-06 16:42:07.417242724 +0000
+@@ -22435,6 +22435,7 @@
          Kerberos\ 5\ release\ 1.17* | \
          Kerberos\ 5\ release\ 1.18* | \
--        Kerberos\ 5\ release\ 1.19*)
-+        Kerberos\ 5\ release\ 1.19* | \
-+        Kerberos\ 5\ release\ 1.20*)
-             krb5_version_ok=yes
-             AC_MSG_RESULT([yes])
-             ;;
---- sssd-2.7.4/configure~	2022-08-26 20:41:10.000000000 +0000
-+++ sssd-2.7.4/configure	2022-09-15 16:58:34.090711218 +0000
-@@ -22422,7 +22422,8 @@
-         Kerberos\ 5\ release\ 1.16* | \
-         Kerberos\ 5\ release\ 1.17* | \
-         Kerberos\ 5\ release\ 1.18* | \
--        Kerberos\ 5\ release\ 1.19*)
-+        Kerberos\ 5\ release\ 1.19* | \
-+        Kerberos\ 5\ release\ 1.20*)
+         Kerberos\ 5\ release\ 1.19* | \
++        Kerberos\ 5\ release\ 1.21* | \
+         Kerberos\ 5\ release\ 1.20*)
              krb5_version_ok=yes
              { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
- printf "%s\n" "yes" >&6; }
+--- sssd-2.8.2/src/external/pac_responder.m4~	2022-12-09 12:39:40.000000000 +0000
++++ sssd-2.8.2/src/external/pac_responder.m4	2023-06-06 16:42:39.006006142 +0000
+@@ -22,6 +22,7 @@
+         Kerberos\ 5\ release\ 1.17* | \
+         Kerberos\ 5\ release\ 1.18* | \
+         Kerberos\ 5\ release\ 1.19* | \
++        Kerberos\ 5\ release\ 1.21* | \
+         Kerberos\ 5\ release\ 1.20*)
+             krb5_version_ok=yes
+             AC_MSG_RESULT([yes])

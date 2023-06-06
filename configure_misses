@@ -1,52 +1,104 @@
 Configure miss: Valgrind tool sgcheck
 Configure miss: Valgrind tool sgcheck
+Configure miss: Valgrind tool sgcheck
+Configure miss: Valgrind tool sgcheck
+Configure miss: dld_link in -ldld
+Configure miss: dld_link in -ldld
 Configure miss: dld_link in -ldld
 Configure miss: dld_link in -ldld
 Configure miss: errno_t
 Configure miss: errno_t
+Configure miss: errno_t
+Configure miss: errno_t
+Configure miss: fakeroot
+Configure miss: fakeroot
 Configure miss: fakeroot
 Configure miss: fakeroot
 Configure miss: faketime
 Configure miss: faketime
+Configure miss: faketime
+Configure miss: faketime
+Configure miss: feature ldb runtime version check
+Configure miss: feature ldb runtime version check
 Configure miss: feature ldb runtime version check
 Configure miss: feature ldb runtime version check
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: krb5_princ_realm
+Configure miss: krb5_princ_realm
 Configure miss: krb5_princ_realm
 Configure miss: krb5_princ_realm
 Configure miss: krb5_principal_get_realm
 Configure miss: krb5_principal_get_realm
+Configure miss: krb5_principal_get_realm
+Configure miss: krb5_principal_get_realm
+Configure miss: krb5_times
+Configure miss: krb5_times
 Configure miss: krb5_times
 Configure miss: krb5_times
 Configure miss: ldap_is_ldapc_url
 Configure miss: ldap_is_ldapc_url
+Configure miss: ldap_is_ldapc_url
+Configure miss: ldap_is_ldapc_url
+Configure miss: nl_set_passcred in -lnl-3
+Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nss_wrapper
 Configure miss: nss_wrapper
+Configure miss: nss_wrapper
+Configure miss: nss_wrapper
+Configure miss: p11tool
+Configure miss: p11tool
 Configure miss: p11tool
 Configure miss: p11tool
 Configure miss: pam_wrapper
 Configure miss: pam_wrapper
+Configure miss: pam_wrapper
+Configure miss: pam_wrapper
+Configure miss: python2
+Configure miss: python2
 Configure miss: python2
 Configure miss: python2
 Configure miss: rtnl_route_get_oif in -lnl-3
 Configure miss: rtnl_route_get_oif in -lnl-3
+Configure miss: rtnl_route_get_oif in -lnl-3
+Configure miss: rtnl_route_get_oif in -lnl-3
+Configure miss: security/openpam.h
+Configure miss: security/openpam.h
 Configure miss: security/openpam.h
 Configure miss: security/openpam.h
 Configure miss: service
 Configure miss: service
+Configure miss: service
+Configure miss: service
+Configure miss: slapd
+Configure miss: slapd
 Configure miss: slapd
 Configure miss: slapd
 Configure miss: softhsm2-util
 Configure miss: softhsm2-util
+Configure miss: softhsm2-util
+Configure miss: softhsm2-util
+Configure miss: the executable "service"
+Configure miss: the executable "service"
 Configure miss: the executable "service"
 Configure miss: the executable "service"
 Configure miss: uid_wrapper
 Configure miss: uid_wrapper
+Configure miss: uid_wrapper
+Configure miss: uid_wrapper
+Configure miss: uint_t
+Configure miss: uint_t
 Configure miss: uint_t
 Configure miss: uint_t
 Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-krb5-config
+Configure miss: x86_64-generic-linux-gnu-krb5-config
 Configure miss: x86_64-generic-linux-gnu-krb5-config
 Configure miss: x86_64-generic-linux-gnu-krb5-config
