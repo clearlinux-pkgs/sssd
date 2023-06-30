@@ -14,8 +14,8 @@ libk5crypto.so.3
 libkeyutils.so.1
 libkrad.so.0
 libkrb5.so.3
-liblber-2.4.so.2
-libldap-2.4.so.2
+liblber.so.2
+libldap.so.2
 libldb.so.2
 libm.so.6
 libndr-krb5pac.so.0
