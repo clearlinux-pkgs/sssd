@@ -1,8 +1,6 @@
 ld-linux-x86-64.so.2
-libbasicobjects.so.0
 libc.so.6
 libcares.so.2
-libcollection.so.4
 libcom_err.so.2
 libcrypto.so.3
 libdbus-1.so.3
@@ -10,17 +8,14 @@ libdhash.so.1
 libgssapi_krb5.so.2
 libini_config.so.5
 libjansson.so.4
-libk5crypto.so.3
 libkeyutils.so.1
 libkrad.so.0
 libkrb5.so.3
 liblber.so.2
 libldap.so.2
 libldb.so.2
-libm.so.6
 libndr-krb5pac.so.0
 libndr-nbt.so.0
-libndr-standard.so.0
 libndr.so.3
 libnfsidmap.so.1
 libnl-3.so.200
@@ -31,7 +26,6 @@ libpam_misc.so.0
 libpcre2-8.so.0
 libpopt.so.0
 libref_array.so.1
-libsamba-util.so.0
 libsasl2.so.3
 libsmbclient.so.0
 libssl.so.3

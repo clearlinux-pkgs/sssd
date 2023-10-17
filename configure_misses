@@ -49,12 +49,10 @@ Configure miss: nl_set_passcred in -lnl-3
 Configure miss: nss_wrapper
 Configure miss: nss_wrapper
 Configure miss: nss_wrapper
-Configure miss: nss_wrapper
 Configure miss: p11tool
 Configure miss: p11tool
 Configure miss: p11tool
 Configure miss: p11tool
-Configure miss: pam_wrapper
 Configure miss: pam_wrapper
 Configure miss: pam_wrapper
 Configure miss: pam_wrapper
