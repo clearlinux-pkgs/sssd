@@ -9,7 +9,7 @@
 #
 Name     : sssd
 Version  : 2.9.1
-Release  : 59
+Release  : 60
 URL      : https://github.com/SSSD/sssd/releases/download/2.9.1/sssd-2.9.1.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.9.1/sssd-2.9.1.tar.gz
 Source1  : https://github.com/SSSD/sssd/releases/download/2.9.1/sssd-2.9.1.tar.gz.asc
