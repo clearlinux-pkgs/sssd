@@ -1,0 +1,17 @@
+/etc/:
+/etc/pam.d:
+/etc/rc.d/init.d:
+/etc/rc.d:
+/etc/sssd/conf.d:
+/etc/sssd/pki:
+/etc/sssd:
+conf.d
+init.d
+pam.d
+pki
+rc.d
+rc.d
+sssd
+sssd
+sssd' ']'
+sssd-shadowutils

@@ -16,7 +16,7 @@ libldap.so.2
 libldb.so.2
 libndr-krb5pac.so.0
 libndr-nbt.so.0
-libndr.so.3
+libndr.so.4
 libnfsidmap.so.1
 libnl-3.so.200
 libnl-route-3.so.200
