@@ -9,15 +9,17 @@
 #
 Name     : sssd
 Version  : 2.9.5
-Release  : 61
+Release  : 62
 URL      : https://github.com/SSSD/sssd/releases/download/2.9.5/sssd-2.9.5.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.9.5/sssd-2.9.5.tar.gz
-Source1  : https://github.com/SSSD/sssd/releases/download/2.9.5/sssd-2.9.5.tar.gz.asc
-Source2  : D3D21B2910CF6759.pkey
+Source1  : sssd.tmpfiles
+Source2  : https://github.com/SSSD/sssd/releases/download/2.9.5/sssd-2.9.5.tar.gz.asc
+Source3  : D3D21B2910CF6759.pkey
 Summary  : SSS certificate mapping library
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-3.0
 Requires: sssd-bin = %{version}-%{release}
+Requires: sssd-config = %{version}-%{release}
 Requires: sssd-data = %{version}-%{release}
 Requires: sssd-lib = %{version}-%{release}
 Requires: sssd-libexec = %{version}-%{release}
@@ -67,10 +69,19 @@ Summary: bin components for the sssd package.
 Group: Binaries
 Requires: sssd-data = %{version}-%{release}
 Requires: sssd-libexec = %{version}-%{release}
+Requires: sssd-config = %{version}-%{release}
 Requires: sssd-license = %{version}-%{release}
 
 %description bin
 bin components for the sssd package.
+
+
+%package config
+Summary: config components for the sssd package.
+Group: Default
+
+%description config
+config components for the sssd package.
 
 
 %package data
@@ -108,6 +119,7 @@ lib components for the sssd package.
 %package libexec
 Summary: libexec components for the sssd package.
 Group: Default
+Requires: sssd-config = %{version}-%{release}
 Requires: sssd-license = %{version}-%{release}
 
 %description libexec
@@ -151,8 +163,8 @@ python3 components for the sssd package.
 %prep
 mkdir .gnupg
 chmod 700 .gnupg
-gpg --homedir .gnupg --import %{SOURCE2}
-gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
+gpg --homedir .gnupg --import %{SOURCE3}
+gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE2} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) D3D21B2910CF6759' gpg.status
 %setup -q -n sssd-2.9.5
 cd %{_builddir}/sssd-2.9.5
@@ -165,7 +177,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1720568481
+export SOURCE_DATE_EPOCH=1721851994
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -227,7 +239,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1720568481
+export SOURCE_DATE_EPOCH=1721851994
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sssd
 cp %{_builddir}/sssd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/sssd/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
@@ -241,6 +253,8 @@ popd
 GOAMD64=v2
 %make_install
 %find_lang sssd
+mkdir -p %{buildroot}/usr/lib/tmpfiles.d
+install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/tmpfiles.d/sssd.conf
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
@@ -265,6 +279,10 @@ GOAMD64=v2
 /usr/bin/sss_ssh_knownhostsproxy
 /usr/bin/sssctl
 /usr/bin/sssd
+
+%files config
+%defattr(-,root,root,-)
+/usr/lib/tmpfiles.d/sssd.conf
 
 %files data
 %defattr(-,root,root,-)
