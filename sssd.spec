@@ -9,7 +9,7 @@
 #
 Name     : sssd
 Version  : 2.9.5
-Release  : 62
+Release  : 63
 URL      : https://github.com/SSSD/sssd/releases/download/2.9.5/sssd-2.9.5.tar.gz
 Source0  : https://github.com/SSSD/sssd/releases/download/2.9.5/sssd-2.9.5.tar.gz
 Source1  : sssd.tmpfiles
