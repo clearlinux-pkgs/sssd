@@ -51,11 +51,13 @@ libsss_certmap.so.0:sss_certmap_init
 libsss_certmap.so.0:sss_certmap_match_cert
 libsss_idmap.so.0:SSS_IDMAP_0.4
 libsss_idmap.so.0:SSS_IDMAP_0.5
+libsss_idmap.so.0:SSS_IDMAP_0.6
 libsss_idmap.so.0:idmap_error_string
 libsss_idmap.so.0:is_domain_sid
 libsss_idmap.so.0:sss_idmap_add_auto_domain_ex
 libsss_idmap.so.0:sss_idmap_add_domain
 libsss_idmap.so.0:sss_idmap_add_domain_ex
+libsss_idmap.so.0:sss_idmap_add_gen_domain_ex
 libsss_idmap.so.0:sss_idmap_bin_sid_to_dom_sid
 libsss_idmap.so.0:sss_idmap_bin_sid_to_sid
 libsss_idmap.so.0:sss_idmap_bin_sid_to_smb_sid
@@ -87,7 +89,11 @@ libsss_idmap.so.0:sss_idmap_free_bin_sid
 libsss_idmap.so.0:sss_idmap_free_dom_sid
 libsss_idmap.so.0:sss_idmap_free_sid
 libsss_idmap.so.0:sss_idmap_free_smb_sid
+libsss_idmap.so.0:sss_idmap_gen_to_unix
 libsss_idmap.so.0:sss_idmap_init
+libsss_idmap.so.0:sss_idmap_offset_identity
+libsss_idmap.so.0:sss_idmap_offset_murmurhash3
+libsss_idmap.so.0:sss_idmap_rev_offset_identity
 libsss_idmap.so.0:sss_idmap_sid_to_bin_sid
 libsss_idmap.so.0:sss_idmap_sid_to_dom_sid
 libsss_idmap.so.0:sss_idmap_sid_to_smb_sid
@@ -98,6 +104,7 @@ libsss_idmap.so.0:sss_idmap_smb_sid_to_sid
 libsss_idmap.so.0:sss_idmap_smb_sid_to_unix
 libsss_idmap.so.0:sss_idmap_unix_to_bin_sid
 libsss_idmap.so.0:sss_idmap_unix_to_dom_sid
+libsss_idmap.so.0:sss_idmap_unix_to_gen
 libsss_idmap.so.0:sss_idmap_unix_to_sid
 libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.0.1
 libsss_nss_idmap.so.0:SSS_NSS_IDMAP_0.1.0

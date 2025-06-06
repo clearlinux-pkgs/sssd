@@ -10,6 +10,8 @@ init.d
 pam.d
 pki
 rc.d
+rc.d
 sssd
 sssd
+sssd' ']'
 sssd-shadowutils
